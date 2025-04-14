@@ -1,0 +1,28 @@
+---
+- name: Stop and disable Tailscale if it exists
+  become: yes
+  ignore_errors: yes
+  systemd:
+    name: tailscaled
+    state: stopped
+    enabled: no
+
+- name: Uninstall any old Tailscale version (if present)
+  become: yes
+  shell: |
+    apt remove --purge tailscale -y || true
+  args:
+    warn: false
+
+- name: Install latest Tailscale
+  become: yes
+  shell: |
+    curl -fsSL https://tailscale.com/install.sh | sh
+
+- name: Enable and start Tailscale service
+  become: yes
+  systemd:
+    name: tailscaled
+    enabled: yes
+    state: started
+

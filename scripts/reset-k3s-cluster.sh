@@ -4,7 +4,7 @@
 
 # === CONFIG ===
 MASTER_IP="100.89.121.96"  # Replace with your master Pi's Tailscale IP
-K3S_TOKEN="PASTE_YOUR_TOKEN_HERE_AFTER_MASTER_SETUP"
+K3S_TOKEN="K10b3bba738a4f8b84e22fe155103710dfa3c25538b76397777f64b18fba63e9ff0::server:8952485d3fd7af9388cd2a2c963ee145"
 
 echo "🚨 WARNING: This will wipe all K3s data and reset the cluster."
 
